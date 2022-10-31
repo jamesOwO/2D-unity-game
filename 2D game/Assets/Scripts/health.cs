@@ -1,34 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
-public class health : MonoBehaviour
+public class Health : MonoBehaviour
 {
-    [SerializeField] private float startinghealth;
-    private float currenthealth;
-    private Animator anim;
+    [SerializeField] private int startinghealth;
+    public int currenthealth { get; private set; }
+    public Animator animator;
+    private bool dead = false;
 
     // Start is called before the first frame update
     void Start()
     {
         currenthealth = startinghealth;
-        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
-    void TakeDamage(float _damage)
+    private void Update()
     {
-        currenthealth = Mathf.Clamp(currenthealth - _damage, 0, startinghealth);
+        if (Input.GetKeyDown(KeyCode.E)) 
+        {
+            TakeDamage(1);
+        }
+    }
 
-
+    void TakeDamage(int damage)
+    {
+        currenthealth = currenthealth - damage;
+        Debug.Log(currenthealth);
         if (currenthealth > 0)
         {
-            anim.SetTrigger("damaged");
-            anim.SetFloat("health", currenthealth);
+            //animator.SetTrigger("damage");
+            animator.SetInteger("Health", currenthealth);
         }
         else
         {
-            anim.SetTrigger("die");
+            if (dead == false)
+            {
+                animator.SetTrigger("die");
+                GetComponent<Movement>().enabled = false;
+                dead = true;
+            }
         }
     }
 }

@@ -274,6 +274,7 @@ GameObject:
   - component: {fileID: 230553271}
   - component: {fileID: 230553270}
   - component: {fileID: 230553272}
+  - component: {fileID: 230553273}
   m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
@@ -341,7 +342,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 230553269}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.5, y: 4.2, z: 0}
+  m_LocalPosition: {x: -6.71, y: 4.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -359,7 +360,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: b7882efef05827645973d4479ed20f5c, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -368,6 +369,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &230553273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230553269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19b4c8c343e95ce46b81f1d428dd3c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerhealth: {fileID: 308387842}
+  animator: {fileID: 230553272}
 --- !u!1 &257079853
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,9 +542,10 @@ GameObject:
   - component: {fileID: 308387838}
   - component: {fileID: 308387837}
   - component: {fileID: 308387836}
+  - component: {fileID: 308387842}
+  - component: {fileID: 308387841}
   - component: {fileID: 308387840}
   - component: {fileID: 308387839}
-  - component: {fileID: 308387841}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -687,6 +703,20 @@ MonoBehaviour:
   jumpableGround:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &308387842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308387835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11d013b47b874b144b0ae79907d35039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startinghealth: 5
+  animator: {fileID: 308387836}
 --- !u!1 &403364952
 GameObject:
   m_ObjectHideFlags: 0
@@ -2434,7 +2464,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.014123917, y: -4.5201817}
+  m_Offset: {x: 0.16557312, y: -4.5201817}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2445,7 +2475,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 22.031364, y: 2.9627514}
+  m_Size: {x: 32.346428, y: 2.9627514}
   m_EdgeRadius: 0
 --- !u!1 &1181010325
 GameObject:

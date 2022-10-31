@@ -19,7 +19,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
+        
         moveSpeed = 7f;
         jumpforce = 5f;
         coll = GetComponent<BoxCollider2D>();
@@ -27,8 +27,8 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        // movement left and right
-        movehorizontal = Input.GetAxisRaw("Horizontal");
+            // movement left and right
+            movehorizontal = Input.GetAxisRaw("Horizontal");
 
         rb.velocity = new Vector2(movehorizontal * moveSpeed, rb.velocity.y);
 
