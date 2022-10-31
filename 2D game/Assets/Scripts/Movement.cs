@@ -27,11 +27,12 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
+        // movement left and right
         movehorizontal = Input.GetAxisRaw("Horizontal");
-        movevertical = Input.GetAxisRaw("Vertical");
 
         rb.velocity = new Vector2(movehorizontal * moveSpeed, rb.velocity.y);
 
+        // faces direction of movement
         if (movehorizontal > 0.1)
         {
             GetComponent<SpriteRenderer>().flipX = false;
@@ -41,12 +42,14 @@ public class Movement : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = true;
         }
 
+        // jump
         if (Input.GetButtonDown("Jump"))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpforce);
             animator.SetBool("IsJumping", true);
         }
 
+        // checks if touching ground
         IsGrounded();
         if (IsGrounded() == true)
         {

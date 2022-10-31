@@ -44,9 +44,15 @@ TagManager:
   - name: background
     uniqueID: 1838008911
     locked: 0
-  - name: level
-    uniqueID: 2895398017
+  - name: foreground
+    uniqueID: 1902683171
     locked: 0
   - name: sprites
     uniqueID: 1795576057
+    locked: 0
+  - name: ground
+    uniqueID: 2895398017
+    locked: 0
+  - name: UI
+    uniqueID: 3049986143
     locked: 0
