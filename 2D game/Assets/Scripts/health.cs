@@ -24,15 +24,21 @@ public class Health : MonoBehaviour
             TakeDamage(1);
         }
     }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "enemy" || other.gameObject.tag == "enemyprojectile")
+        {
+            TakeDamage(1);
+        }
+    }
+
 
     void TakeDamage(int damage)
     {
         currenthealth = currenthealth - damage;
-        Debug.Log(currenthealth);
         if (currenthealth > 0)
         {
             //animator.SetTrigger("damage");
-            animator.SetInteger("Health", currenthealth);
         }
         else
         {

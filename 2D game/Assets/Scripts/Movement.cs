@@ -5,6 +5,8 @@ using UnityEngine.Animations;
 
 public class Movement : MonoBehaviour
 {
+    public ProjectileBehaviour projectileprefab;
+    public Transform LaunchOffset;
     private Rigidbody2D rb;
     private float moveSpeed;
     private float movehorizontal;
@@ -14,6 +16,8 @@ public class Movement : MonoBehaviour
     public Animator animator;
     private BoxCollider2D coll;
     [SerializeField] private LayerMask jumpableGround;
+    public float cooldowntime;
+    private float nextfiretime;
 
 
     void Start()
@@ -27,8 +31,8 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-            // movement left and right
-            movehorizontal = Input.GetAxisRaw("Horizontal");
+        // movement left and right
+        movehorizontal = Input.GetAxisRaw("Horizontal");
 
         rb.velocity = new Vector2(movehorizontal * moveSpeed, rb.velocity.y);
 
@@ -58,7 +62,16 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            animator.SetBool("IsJumping", true );
+            animator.SetBool("IsJumping", true);
+        }
+
+        if (Time.time > nextfiretime)
+        {
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                Instantiate(projectileprefab, LaunchOffset.position, transform.rotation);
+                nextfiretime = Time.time + cooldowntime;
+            }
         }
     }
     private bool IsGrounded()
