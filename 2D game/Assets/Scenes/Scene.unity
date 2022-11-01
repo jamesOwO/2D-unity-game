@@ -4167,7 +4167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2654a252fa20bf3418ba3450df6d1913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startinghealth: 20
+  startinghealth: 50
   animator: {fileID: 1849152100}
 --- !u!114 &1849152106
 MonoBehaviour:
@@ -4185,6 +4185,8 @@ MonoBehaviour:
   LaunchOffset1: {fileID: 51853697}
   LaunchOffset2: {fileID: 2043183808}
   LaunchOffset3: {fileID: 32968988}
+  Playerhealth: {fileID: 308387842}
+  Enemyhealth: {fileID: 1849152105}
 --- !u!1 &2043183807
 GameObject:
   m_ObjectHideFlags: 0
