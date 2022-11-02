@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class EnemyControl : MonoBehaviour
@@ -37,6 +38,8 @@ public class EnemyControl : MonoBehaviour
     private bool stage3 = false;
     private float stage2time;
     private float stage3time;
+    private bool gameend = false;
+    private float finalscene;
 
     void Start()
     {
@@ -58,12 +61,12 @@ public class EnemyControl : MonoBehaviour
                     if (Time.time > projectile2fire)
                     {
                         Instantiate(projectileprefab, LaunchOffset2.position, transform.rotation);
-                        projectile2fire = Time.time + 2;
+                        projectile2fire = Time.time + 1;
                     }
                     if (Time.time > projectile3fire)
                     {
                         Instantiate(projectileprefab, LaunchOffset3.position, transform.rotation);
-                        projectile3fire = Time.time + 7;
+                        projectile3fire = Time.time + 4;
                     }
                 }
 
@@ -192,6 +195,22 @@ public class EnemyControl : MonoBehaviour
                         projectile10fire = Time.time + 3;
                     }
                 }
+            }
+        }
+        if (Enemyhealth.enemycurrenthealth <= 0 || Playerhealth.currenthealth <= 0)
+        {
+            if (gameend == false)
+            {
+                gameend = true;
+                finalscene = Time.time + 4;
+            }
+            if (Enemyhealth.enemycurrenthealth <= 0 && gameend == true && finalscene < Time.time)
+            {
+                SceneManager.LoadScene("Winscene");
+            }
+            if (Playerhealth.currenthealth <= 0 && gameend == true && finalscene < Time.time)
+            {
+                SceneManager.LoadScene("Losescene");
             }
         }
     }

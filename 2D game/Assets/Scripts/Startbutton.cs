@@ -18,10 +18,14 @@ public class Startbutton : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "startbutton")
         {
-            SceneManager.LoadScene("scene");
+            SceneManager.LoadScene("Scene");
+        }
+        if (other.gameObject.tag == "quitbutton")
+        {
+            Application.Quit();
+            Debug.Log("quit");
         }
     }
-
 }
