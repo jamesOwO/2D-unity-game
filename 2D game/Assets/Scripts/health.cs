@@ -21,7 +21,7 @@ public class Health : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E)) 
         {
-            TakeDamage(1);
+            TakeDamage(5);
         }
     }
     private void OnCollisionEnter2D(Collision2D other)
