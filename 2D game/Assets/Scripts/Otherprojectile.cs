@@ -16,7 +16,7 @@ public class Otherprojectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "enemy" || other.gameObject.tag == "border" || other.gameObject.tag == "Player" || other.gameObject.tag == "floor")
+        if (other.gameObject.tag == "enemy" || other.gameObject.tag == "border" || other.gameObject.tag == "Player" || other.gameObject.tag == "floor" || other.gameObject.tag == "enemyprojectile")
         {
             Destroy(gameObject);
         }

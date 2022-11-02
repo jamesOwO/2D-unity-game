@@ -16,7 +16,7 @@ public class ProjectileBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "enemy" || other.gameObject.tag == "border")
+        if (other.gameObject.tag == "enemy" || other.gameObject.tag == "border" || other.gameObject.tag == "enemyprojectile")
         {
             Destroy(gameObject);
         }

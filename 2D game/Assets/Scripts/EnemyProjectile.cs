@@ -7,6 +7,7 @@ public class EnemyProjectile : MonoBehaviour
     public Animator animator;
 
     public float speed;
+    private float health = 3;
 
     // Update is called once per frame
     private void Update()
@@ -19,6 +20,14 @@ public class EnemyProjectile : MonoBehaviour
         if (other.gameObject.tag == "Player" || other.gameObject.tag == "border")
         {
             Destroy(gameObject);
+        }
+        if (other.gameObject.tag == "playerprojectile")
+        {
+            health = health - 1;
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

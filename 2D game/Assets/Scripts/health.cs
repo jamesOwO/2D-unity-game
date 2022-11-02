@@ -6,6 +6,8 @@ using UnityEngine.Animations;
 public class Health : MonoBehaviour
 {
     [SerializeField] private int startinghealth;
+    [SerializeField] private Enemyhealth Enemyhealth;
+
     public int currenthealth { get; private set; }
     public Animator animator;
     private bool dead = false;
@@ -36,18 +38,17 @@ public class Health : MonoBehaviour
     void TakeDamage(int damage)
     {
         currenthealth = currenthealth - damage;
-        if (currenthealth > 0)
+        
+        if (currenthealth <= 0 && dead == false)
         {
-            //animator.SetTrigger("damage");
+            animator.SetTrigger("die");
+            GetComponent<Movement>().enabled = false;
+            dead = true;
         }
-        else
+        if (Enemyhealth.enemycurrenthealth <= 0)
         {
-            if (dead == false)
-            {
-                animator.SetTrigger("die");
-                GetComponent<Movement>().enabled = false;
-                dead = true;
-            }
+            GetComponent<Movement>().enabled = false;
         }
+
     }
 }

@@ -10,7 +10,6 @@ public class Enemyhealth : MonoBehaviour
     public int enemycurrenthealth { get; private set; }
     public Animator animator;
     private bool enemydead = false;
-    private float killtime;
 
     void Start()
     {
@@ -25,27 +24,22 @@ public class Enemyhealth : MonoBehaviour
     {
         if (other.gameObject.tag == "playerprojectile")
         {
-            TakeDamage(1);
+            if (enemycurrenthealth > 0)
+            {
+                TakeDamage(1);
+            }
         }
     }
 
     void TakeDamage(int damage)
     {
         enemycurrenthealth = enemycurrenthealth - damage;
-        if (enemycurrenthealth > 0)
         {
-            //animator.SetTrigger("damage");
-        }
-        else
-        {
-            if (enemydead == false)
+            if (enemydead == false && enemycurrenthealth <= 0)
             {
                 animator.SetTrigger("enemydie");
                 enemydead = true;
-                GetComponent<Movement>().enabled = false;
-
             }
         }
     }
-
 }
