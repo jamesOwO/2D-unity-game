@@ -33,7 +33,7 @@ public class EnemyControl : MonoBehaviour
     private float projectile8fire = 5; 
     private float projectile9fire = 2;
     private float projectile10fire = 4;
-
+    private float timebegin;
     private bool stage2 = false;
     private bool stage3 = false;
     private float stage2time;
@@ -43,11 +43,12 @@ public class EnemyControl : MonoBehaviour
 
     void Start()
     {
+        timebegin = Time.time + 5;
     }
 
     void Update()
     {
-        if (Time.time > 5)
+        if (Time.time > timebegin)
         {
             if (Playerhealth.currenthealth > 0 && Enemyhealth.enemycurrenthealth > 0)
             {

@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  speed: 0.03
+  speed: 0.15
 --- !u!61 &1546954706016174557
 BoxCollider2D:
   m_ObjectHideFlags: 0
